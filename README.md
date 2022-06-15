@@ -1,6 +1,6 @@
 # image-processing-lab
 
-
+1.Develop a program to display grayscale image as tiny real and write program<br>
 import cv2<br>
 img1=cv2.imread('flower5.jpg',0)<br>
 cv2.imshow('flower3',img1)<br>
@@ -11,8 +11,7 @@ cv2.destroyAllWindows()<br>
 <br>
 
 
-
-
+2.develop a program to display image to string using metaplotlib<br>
 import matplotlib.image as mping<br>
 import matplotlib.pyplot as plt<br>
 img=mping.imread('flower5.jpg')<br>
@@ -22,7 +21,7 @@ plt.imshow(img)<br>
 
 
 
-
+3.Develop program to perform linear transfermation rotation<br>
 from PIL import Image<br>
 img=Image.open("flower3.jpg")<br>
 img=img.rotate(180)<br>
@@ -34,6 +33,7 @@ cv2.destroyAllWindows()<br>
 
 
 
+4.develop a programt to convert color,string to RGB order value<br>
 from PIL import ImageColor<br>
 #using getrgb for yellow<br>
 img1=ImageColor.getrgb("yellow")<br>
@@ -47,15 +47,16 @@ print(img2)<br>
 <br>
 
 
+5.write program to create image using color<br>
 from PIL import Image<br>
 img=Image.new('RGB',(200,400),(235,255,0))<br>
 img.show()<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/173815623-c11c4d89-1831-4ee0-a4c2-593f498fc683.png)<br>
 
+<br>
 
-
-
+6.develop a program to visualize the image using various color spaces<br>
 import cv2<br>
 import matplotlib.pyplot as plt<br>
 import numpy as np<br>
@@ -77,6 +78,7 @@ plt.show()<br>
 
 
 <br>
+7.write aprogram to display the image altribute <br>
 from PIL import Image<br>
 image=Image.open("flower5.jpg")<br>
 print("Filename",image.filename)<br>
