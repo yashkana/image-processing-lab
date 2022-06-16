@@ -124,6 +124,48 @@ resized image
 ![image](https://user-images.githubusercontent.com/98301023/174042760-0bc4c7da-374c-42a0-bd1e-ad6864fe8fc7.png)
 
 
+
+
+
+#convert image to binary<br>
+#read the image file<br>
+
+img=cv2.imread('butterfly1.jpg')<br>
+
+cv2.imshow("RGB",img)<br>
+
+<br>
+
+
+#grayscale<br>
+
+img=cv2.imread("butterfly1.jpg",0)<br>
+
+cv2.imshow("gray",img)<br>
+
+
+
+#binary image<br>
+
+ret,bw_img=cv2.threshold(img,127,255,cv2.THRESH_BINARY)<br>
+
+cv2.imshow("binary",bw_img)<br>
+
+cv2.waitKey(0)<br>
+
+cv2.destroyAllWindows()<br>
+
+OUTPUT
+![image](https://user-images.githubusercontent.com/98301023/174045192-d8c64d61-cad7-4ebc-8640-54f776bb8ba9.png)<br>
+![image](https://user-images.githubusercontent.com/98301023/174049390-d6114a69-30e3-4ff7-81f0-2d6e1e8e5b7b.png)<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/174049599-4d11d4d7-6f00-479a-8edb-357df4388477.png)<br>
+
+
+
+
+
                      
 
 
