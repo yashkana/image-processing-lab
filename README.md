@@ -99,3 +99,32 @@ height 132<br>
 
 
 
+
+
+#convert the original image to gray scale and then to to binary<br>
+import cv2<br>
+img=cv2.imread("plants2.jpg")<br>
+print('original image length width',img.shape)<br>
+cv2.imshow('original image',img)<br>
+
+#to show resize image<br>
+imgresize=cv2.resize(img,(150,160))<br>
+cv2.imshow('resized image',imgresize)<br>
+print('resized image length width',imgresize.shape)<br>
+cv2.waitKey(0)<br>
+
+OUTPUT
+original image length width (751, 1000, 3)
+resized image length width (160, 150, 3)
+
+![image](https://user-images.githubusercontent.com/98301023/174042548-3d1ec7ff-8b7f-4add-8431-5125c716c172.png)<br>
+
+
+resized image
+![image](https://user-images.githubusercontent.com/98301023/174042760-0bc4c7da-374c-42a0-bd1e-ad6864fe8fc7.png)
+
+
+                     
+
+
+
