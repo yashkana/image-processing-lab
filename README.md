@@ -294,7 +294,50 @@ img.show()<br>
 c.waitKey(0)<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/175276188-391249d1-76a0-4f05-a8db-0c454ece37a9.png)<br>
+
+
+
 <br>
+
+<br>
+import cv2<br>
+import matplotlib.image as mping<br>
+import matplotlib.pyplot as plt<br>
+img1=cv2.imread('fish.jpg')<br>
+img2=cv2.imread('plants1.jpg')<br>
+#applying numpy addition on images<br>
+fimg1=img1+img2<br>
+plt.imshow(fimg1)<br>
+plt.show()<br>
+#saving the output image <br>
+cv2.imwrite('output.jpg',fimg1)<br>
+fimg2=img1-img2<br>
+plt.imshow(fimg2)<br>
+plt.show()<br>
+#saving the output image<br>
+cv2.imwrite('output.jpg',fimg2)<br>
+fimg3=img1*img2<br>
+plt.imshow(fimg3)<br>
+plt.show()<br>
+#savin the output image<br>
+cv2.imwrite('output.jpg',fimg3)<br>
+fimg4=img1/img2<br>
+plt.imshow(fimg4)<br>
+plt.show()<br>
+#saving the output image<br>
+cv2.imwrite('output.jpg',fimg4)<br>
+
+
+
+![image](https://user-images.githubusercontent.com/98301023/175278179-66d43b70-5e04-4e78-9e0e-9e9dac5172aa.png)<br>
+![image](https://user-images.githubusercontent.com/98301023/175278220-8f7705fc-3cd4-4f30-b702-9674b43e5c4a.png)<br>
+![image](https://user-images.githubusercontent.com/98301023/175278270-eaf26329-a72a-45cf-a6e2-e82619373ad8.png)<br>
+![image](https://user-images.githubusercontent.com/98301023/175278392-8ff56508-97ae-416f-985e-02a64b40f9f3.png)<br>
+<br>
+
+
+
+
 
 
 
