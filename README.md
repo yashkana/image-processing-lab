@@ -165,6 +165,97 @@ OUTPUT
 
 
 
+import cv2<br>
+import matplotlib.image as mping<br>
+import matplotlib.pyplot as plt<br>
+img=cv2.imread('flower3.jpg')<br>
+plt.imshow(img)<br>
+plt.show<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/175273060-a77cf8ee-f8d3-4471-b16c-c11e1cb43650.png)<br>
+
+
+
+from skimage import io<br>
+import matplotlib.pyplot as plt<br>
+url='https://i.guim.co.uk/img/media/a7fe7170defa865d2b96b829f05c5d8fa82d8edf/0_20_2201_1321/master/2201.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=72bbae118ff1631bcc0d1f837159a727'<br>
+image=io.imread(url)<br>
+plt.imshow(image)<br>
+plt.show()<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/175273244-5fb34328-be3e-4be2-b583-c733ae7c9f2e.png)<br>
+
+
+
+import cv2<br>
+import matplotlib.image as mping<br>
+import matplotlib.pyplot as plt<br>
+img=cv2.imread('fish.jpg')<br>
+plt.imshow(img)<br>
+plt.show<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/175273430-7bed0f3c-8bc8-40bf-b26c-8b5bdc02f204.png)<br>
+
+
+
+
+hsv_img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)<br>
+light_orange=(170, 255, 128)<br>
+dark_orange=(179, 204, 245)<br>
+
+
+mask=cv2.inRange(img,light_orange,dark_orange)<br>
+result=cv2.bitwise_and(img,img,mask=mask)<br>
+
+
+plt.subplot(1,2,1)<br>
+plt.imshow(mask,cmap="gray")<br>
+plt.subplot(1,2,2)<br>
+plt.imshow(result)<br>
+plt.show()<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/175273790-3f9061f4-8f59-4678-82f1-96e3a54ad2d3.png)<br>
+
+
+
+
+light_white=(0,190,200)<br>
+dark_white=(0,0,139)<br>
+mask_white=cv2.inRange(hsv_img,light_white,dark_white)<br>
+plt.subplot(1,2,1)<br>
+plt.imshow(mask_white,cmap="gray")<br>
+plt.subplot(1,2,2)<br>
+plt.imshow(result_white)<br>
+plt.show()<br>
+
+![image](https://user-images.githubusercontent.com/98301023/175274069-3cc0c31c-be60-441a-81e9-f518662920c0.png)<br>
+
+
+final_mask=mask+mask_white<br>
+final_result=cv2.bitwise_and(img,img,mask=final_mask)<br>
+plt.subplot(1,2,1)<br>
+plt.imshow(final_mask,cmap="gray")<br>
+plt.subplot(1,2,2)<br>
+plt.imshow(final_result)<br>
+plt.show()<br>
+
+![image](https://user-images.githubusercontent.com/98301023/175274187-bca6203d-7d25-4593-88b6-405a48c30522.png)
+
+
+
+blur=cv2.GaussianBlur(final_result,(7,7),0)<br>
+plt.imshow(blur)<br>
+plt.show()<br>
+
+![image](https://user-images.githubusercontent.com/98301023/175274306-18099bd8-dc48-4a1f-a766-5fa8b06d771d.png)<br>
+<br>
+
+
+
 
                      
 
