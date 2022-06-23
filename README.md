@@ -101,7 +101,7 @@ height 132<br>
 
 
 
-#convert the original image to gray scale and then to to binary<br>
+8.convert the original image to gray scale and then to to binary<br>
 import cv2<br>
 img=cv2.imread("plants2.jpg")<br>
 print('original image length width',img.shape)<br>
@@ -127,7 +127,7 @@ resized image
 
 
 
-#convert image to binary<br>
+9.convert image to binary<br>
 #read the image file<br>
 
 img=cv2.imread('butterfly1.jpg')<br>
@@ -253,6 +253,58 @@ plt.show()<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/175274306-18099bd8-dc48-4a1f-a766-5fa8b06d771d.png)<br>
 <br>
+
+
+#dervelop the program to change the image to different color spaces<br>
+import cv2 <br>
+img=cv2.imread('fish.jpg')<br>
+gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)<br>
+hsv=cv2.cvtColor(img,cv2.COLOR_BGR2HSV)<br>
+lab=cv2.cvtColor(img,cv2.COLOR_BGR2LAB)<br>
+hls=cv2.cvtColor(img,cv2.COLOR_BGR2HLS)<br>
+yuv=cv2.cvtColor(img,cv2.COLOR_BGR2YUV)<br>
+cv2.imshow("gray image",gray)<br>
+cv2.imshow("hsv image",hsv)<br>
+cv2.imshow("LAB image",lab)<br>
+cv2.imshow("HLS image",hls)<br>
+cv2.imshow("YUVimage",yuv)<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/175275496-6503a469-9416-4a57-adfd-78d23889324c.png)<br>
+![image](https://user-images.githubusercontent.com/98301023/175275575-e95e3b15-d9e4-4634-893f-61ec69b108b1.png)<br>
+![image](https://user-images.githubusercontent.com/98301023/175275672-fe041d01-f413-4166-9b3d-f3898a0ef00c.png)<br>
+![image](https://user-images.githubusercontent.com/98301023/175275779-769d7666-ae65-4232-b9f4-7e4654d54bb3.png)<br>
+![image](https://user-images.githubusercontent.com/98301023/175275923-53dda87d-076d-479a-af9d-07f5faa08c1f.png)<br>
+
+
+
+
+#program to create an image using 2D array<br>
+import cv2 as c<br>
+import numpy as np<br>
+from PIL import Image<br>
+array=np.zeros([100,200,3],dtype=np.uint8)<br>
+array[:,:100]=[255,130,0]<br>
+array[:,100:]=[0,0,255]<br>
+img=Image.fromarray(array)<br>
+img.save('gfhgh.png')<br>
+img.show()<br>
+c.waitKey(0)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/175276188-391249d1-76a0-4f05-a8db-0c454ece37a9.png)<br>
+<br>
+
+
+
+
+
+
+
+
+
+
 
 
 
