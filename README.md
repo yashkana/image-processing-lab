@@ -338,6 +338,142 @@ cv2.imwrite('output.jpg',fimg4)<br>
 
 
 
+28-06-2022<br>
+1.import cv2<br>
+import matplotlib.pyplot as plt<br>
+image1=cv2.imread('butterfly1.jpg',1)<br>
+image2=cv2.imread('butterfly1.jpg')<br>
+ax=plt.subplots(figsize=(15,10))<br>
+bitwiseAnd=cv2.bitwise_and(image1,image2)<br>
+bitwiseor=cv2.bitwise_or(image1,image2)<br>
+bitwisxor=cv2.bitwise_xor(image1,image2)<br>
+bitwiseNot_img1=cv2.bitwise_not(image1)<br>
+bitwiseNot_img2=cv2.bitwise_not(image2)<br>
+plt.subplot(151)<br>
+plt.imshow(bitwiseAnd)<br>
+plt.subplot(152)<br>
+plt.imshow(bitwiseor)<br>
+plt.subplot(153)<br>
+plt.imshow(bitwisxor)<br>
+plt.subplot(154)<br>
+plt.imshow(bitwiseNot_img1)<br>
+plt.subplot(155)<br>
+plt.imshow(bitwiseNot_img2)<br>
+cv2.waitKey(0)<br>
+
+
+OUTPUT<br>
+![image](https://user-images.githubusercontent.com/98301023/176416526-f15dcd56-75bf-4984-9b3a-3fed4669d9fd.png)<br>
+
+
+2.<br>
+import cv2<br>
+import numpy as np<br>
+
+image=cv2.imread('butterfly1.jpg')<br>
+cv2.imshow('original image',image)<br>
+
+
+#gaussian Blur<br>
+Gaussian=cv2.GaussianBlur(image,(7,7),0)<br>
+cv2.imshow('Gaussian Blurring',Gaussian)<br>
+
+
+#median Blurring<br>
+median=cv2.medianBlur(image,5)<br>
+cv2.imshow('median Blurring',median)<br>
+
+
+#Bilateral Blur<br>
+bilateral=cv2.bilateralFilter(image,9,75,75)<br>
+cv2.imshow('Bilateral Blurring',bilateral)<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
+
+OUTPUT<br>
+![image](https://user-images.githubusercontent.com/98301023/176417321-2c05839d-f190-4626-8927-92864166efdd.png)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/176417490-685f0d0c-8ba0-4f48-a33c-76db43326d6d.png)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/176417610-2ab1ddf7-d545-4442-ad3e-ad6a1dfbf4f2.png)<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/176417769-b349a555-9313-4ec1-a6b9-cbfab29c1adb.png)<br>
+<br>
+
+
+
+3.from PIL import Image<br>
+from PIL import ImageEnhance<br>
+Image=Image.open('butterfly1.jpg')<br>
+Image.show()<br>
+enh_bri=ImageEnhance.Brightness(Image)<br>
+brightness=1.5<br>
+image_brightened=enh_bri.enhance(brightness)<br>
+image_brightened.show()<br>
+enh_col=ImageEnhance.Color(Image)<br>
+color=1.5<br>
+image_colored=enh_col.enhance(color)<br>
+image_colored.show()<br>
+enh_con=ImageEnhance.Contrast(Image)<br>
+contrast=1.5<br>
+image_contrasted=enh_con.enhance(contrast)<br>
+image_contrasted.show()<br>
+enh_sha=ImageEnhance.Sharpness(Image)<br>
+sharpness=3.0<br>
+image_sharped=enh_sha.enhance(sharpness)<br>
+image_sharped.show()<br>
+
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98301023/176419998-a8671fe9-e4d7-4c07-9b19-8ee45af7aa50.png)<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/176420108-6e2e5573-b534-4e44-9bfb-abd53b2d0e98.png)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/176420158-556aef84-f2e2-46e5-b106-ebbf3cbfade1.png)<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/176420236-93808c30-a360-486e-880d-c54fd24ef82c.png)<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/176420455-0cb8b177-c106-4e40-9971-ff5bd5039a35.png)
+
+
+
+
+
+4.<br>
+import cv2<br>
+import numpy as np<br>
+from matplotlib import pyplot as plt<br>
+from PIL import Image,ImageEnhance<br>
+img=cv2.imread('dog1.jpg',0)<br>
+ax=plt.subplots(figsize=(20,10))<br>
+kernel=np.ones((5,5),np.uint8)<br>
+opening=cv2.morphologyEx(img,cv2.MORPH_OPEN,kernel)<br>
+closing=cv2.morphologyEx(img,cv2.MORPH_CLOSE,kernel)<br>
+erosion=cv2.erode(img,kernel,iterations=1)<br>
+dilation=cv2.dilate(img,kernel,iterations=1)<br>
+gradient=cv2.morphologyEx(img,cv2.MORPH_GRADIENT,kernel)<br>
+plt.subplot(151)<br>
+plt.imshow(opening)<br>
+plt.subplot(152)<br>
+plt.imshow(closing)<br>
+plt.subplot(153)<br>
+plt.imshow(erosion)<br>
+plt.subplot(154)<br>
+plt.imshow(dilation)<br>
+plt.subplot(154)<br>
+plt.imshow(gradient)<br>
+cv2.waitKey(0)<br>
+
+<br>
+OUTPUT:<br>
+
+![image](https://user-images.githubusercontent.com/98301023/176420696-b86ccca1-6577-4028-8d5b-f855fa534663.png)<br>
+
+
+
 
 
 
