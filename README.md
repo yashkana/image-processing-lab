@@ -538,6 +538,7 @@ plt.imshow(equ,'gray')<br>
 plt.show()<br>
         <br>
         OUTPUT:
+        <br>
         ![image](https://user-images.githubusercontent.com/98301023/178709200-c4622c07-9179-4014-af29-67083bf3ba37.png)<br>
 
       
