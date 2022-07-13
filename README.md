@@ -491,10 +491,57 @@ the image is successfully saved<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/178705554-12766fde-5d5e-4e00-aed1-50a724be2d0a.png)<br>
 -------------------------------------------------------------------------------------------------------------------------------------------------------<br>
+
 <br>
 
 
+import cv2<br>
+import numpy as np<br>
+from matplotlib import pyplot as plt<br>
+image=cv2.imread('dog2.jpg',0)<br>
+x,y=image.shape<br>
+z=np.zeros((x,y))<br>
+for i in range(0,x):<br>
+    for j in range(0,y):<br>
+        if(image[i][j]>50 and image[i][j]<150):<br>
+            z[i][j]=255      <br> 
+        else:<br>
+            z[i][j]=image[i][j]<br>
+equ=np.hstack((image,z))<br>
+plt.title('graylevel slicing with background')<br>
+plt.imshow(equ,'gray')<br>
+plt.show()<br>
+        <br>
+        
+        
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98301023/178706540-03dda4d6-c78f-4149-921a-88abfaad531f.png)<br>
 
+  ----------------------------------------------------------------------------------------------------------------------------------------------------<br>      
+
+
+import cv2<br>
+import numpy as np<br>
+from matplotlib import pyplot as plt<br>
+image=cv2.imread('dog2.jpg',0)<br>
+x,y=image.shape<br>
+z=np.zeros((x,y))<br>
+for i in range(0,x):<br>
+    for j in range(0,y):<br>
+        if(image[i][j]>50 and image[i][j]<150):<br>
+            z[i][j]=255      <br> 
+        else:<br>
+            z[i][j]=image[i][j]<br>
+equ=np.hstack((image,z))<br>
+plt.title('graylevel slicing with background')<br>
+plt.imshow(equ,'gray')<br>
+plt.show()<br>
+        <br>
+        
+        OUTPUT:
+        ![image](https://user-images.githubusercontent.com/98301023/178707110-ca5d34ab-0edf-404d-b6bc-20854dfa317a.png)<br>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>
+        
 
 
 
