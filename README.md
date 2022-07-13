@@ -9,7 +9,7 @@ cv2.destroyAllWindows()<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/173814042-1f9fd68f-504c-42d3-b854-ff58bf7b027f.png)<br>
 <br>
-
+-----------------------------------------------------------------------------------------------------------------------------<br>
 
 2.develop a program to display image to string using metaplotlib<br>
 import matplotlib.image as mping<br>
@@ -471,9 +471,27 @@ cv2.waitKey(0)<br>
 OUTPUT:<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/176420696-b86ccca1-6577-4028-8d5b-f855fa534663.png)<br>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------<br>
 
+#13/07/2022<br>
+import cv2<br>
+originalimg=cv2.imread('dog1.jpg')<br>
+grayimg=cv2.imread('dog1.jpg',0)<br>
+issaved=cv2.imwrite('d:/dog1.jpg',grayimg)<br>
+cv2.imshow('display original image',originalimg)<br>
+cv2.imshow('display grayscale image',grayimg)<br>
+cv2.waitKey(0);<br>
+cv2.destroyAllWindows()<br>
+if issaved:<br>
+    print('the image is successfully saved')<br>
+<br>
+OUTPUT:<br>
+the image is successfully saved<br>
+![image](https://user-images.githubusercontent.com/98301023/178705388-b15098a7-ef37-4387-a853-98ad8bbdea2f.png)<br>
 
-
+![image](https://user-images.githubusercontent.com/98301023/178705554-12766fde-5d5e-4e00-aed1-50a724be2d0a.png)<br>
+-------------------------------------------------------------------------------------------------------------------------------------------------------<br>
+<br>
 
 
 
