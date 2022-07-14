@@ -544,18 +544,73 @@ plt.show()<br>
       
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>
         
+#13-07-2022<br>
+IMAGE USING HISTOGRAM<br>
+
+using gray image<br>
+
+import cv2<br>
+import matplotlib.pyplot as plt<br>
+img = cv2.imread('viratkohli.jpg',0)<br>
+hist = cv2.calcHist([img],[0], None, [256], [0, 256])<br>
+cv2.imshow("Original image", img)<br>
+plt.plot(hist)<br>
+plt.xlim([0, 256])<br>
+plt.ylim([0, max(hist)+1])<br>
+plt.show()<br>
+cv2.waitKey(0)<br><br><br>
+cv2.destroyAllWindows()<br>
+
+OUTPUT<br>
+![image](https://user-images.githubusercontent.com/98301023/178964863-6336f720-7be2-48bb-bc29-00b5b2d71a73.png)<br>
+<br>
+![image](https://user-images.githubusercontent.com/98301023/178965063-8b1ef275-f5a0-4d04-a7ce-73e626b1cd77.png)<br>
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------<br?
 
 
+import cv2<br><br>
+import matplotlib.pyplot as plt<br><br>
+img = cv2.imread("viratkohli.jpg")<br><br>
+color = ('b','g','r')<br><br>
+cv2.imshow("Original image", img)<br><br>
+for i,col in enumerate(color):<br><br>
+    hist = cv2.calcHist([img],[i], None, [256], [0, 256])<br><br>
+    plt.plot(hist, color=col)<br><br>
+plt.show()<br><br>
+cv2.waitKey(0)<br><br>
+cv2.destroyAllWindows()<br><br>
+
+OUTPUT<br><br>
+![image](https://user-images.githubusercontent.com/98301023/178970782-b38a4d86-db6b-449e-b3ab-d4c3cba068d2.png)<br>
 
 
+![image](https://user-images.githubusercontent.com/98301023/178971022-72fa0e5a-4460-4c56-86c7-dd97647d1d33.png)<br>
+
+---------------------------------------------------------------------------------------------------------------------------------------------<br>
 
 
+#histogram equilyzer<br>
+import cv2<br><br>
+import matplotlib.pyplot as plt<br>
+img = cv2.imread("viratkohli.jpg",0)<br>
+equalized_img = cv2.equalizeHist(img)<br>
+hist = cv2.calcHist([img],[0], None, [256], [0, 256])<br>
+equalized_hist = cv2.calcHist([equalized_img],[0], None, [256], [0, 256])<br>
+fig, ax = plt.subplots(2, 2, figsize=(9,7))<br>
+ax[0, 0].plot(hist)<br>
+ax[0,0].set_title("Histogram of the original image")<br>
+ax[0, 1].plot(equalized_hist)<br>
+ax[0,1].set_title("Equalized histogram")<br>
+ax[1, 0].imshow(img, cmap="gray")<br>
+ax[1, 0].set_title("Original image")<br>
+ax[1, 1].imshow(equalized_img, cmap="gray")<br>
+ax[1,1].set_title("Histogram equalized image")<br>
+plt.show()<br>
 
+OUTPUT<br>
 
-
-                     
-
+![image](https://user-images.githubusercontent.com/98301023/178971324-02c2e4d7-105e-4e02-98bd-ad898a542115.png)<br>
 
 
