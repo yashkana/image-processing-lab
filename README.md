@@ -176,7 +176,7 @@ plt.show<br>
 ![image](https://user-images.githubusercontent.com/98301023/175273060-a77cf8ee-f8d3-4471-b16c-c11e1cb43650.png)<br>
 
 
-
+10.develop a program to read the image using URl<br>
 from skimage import io<br>
 import matplotlib.pyplot as plt<br>
 url='https://i.guim.co.uk/img/media/a7fe7170defa865d2b96b829f05c5d8fa82d8edf/0_20_2201_1321/master/2201.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=72bbae118ff1631bcc0d1f837159a727'<br>
@@ -188,7 +188,7 @@ plt.show()<br>
 ![image](https://user-images.githubusercontent.com/98301023/175273244-5fb34328-be3e-4be2-b583-c733ae7c9f2e.png)<br>
 
 
-
+11.program to musk and blur the image
 import cv2<br>
 import matplotlib.image as mping<br>
 import matplotlib.pyplot as plt<br>
@@ -255,7 +255,7 @@ plt.show()<br>
 <br>
 
 
-#dervelop the program to change the image to different color spaces<br>
+12.dervelop the program to change the image to different color spaces<br>
 import cv2 <br>
 img=cv2.imread('fish.jpg')<br>
 gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)<br>
@@ -281,7 +281,7 @@ cv2.destroyAllWindows()<br>
 
 
 
-#program to create an image using 2D array<br>
+13.program to create an image using 2D array<br>
 import cv2 as c<br>
 import numpy as np<br>
 from PIL import Image<br>
@@ -300,6 +300,7 @@ c.waitKey(0)<br>
 <br>
 
 <br>
+14.Write the program to perform arithmatic operation on image<br>
 import cv2<br>
 import matplotlib.image as mping<br>
 import matplotlib.pyplot as plt<br>
@@ -339,6 +340,7 @@ cv2.imwrite('output.jpg',fimg4)<br>
 
 
 28-06-2022<br>
+15.Program to implement bitwise operation <br>
 1.import cv2<br>
 import matplotlib.pyplot as plt<br>
 image1=cv2.imread('butterfly1.jpg',1)<br>
@@ -366,7 +368,8 @@ OUTPUT<br>
 ![image](https://user-images.githubusercontent.com/98301023/176416526-f15dcd56-75bf-4984-9b3a-3fed4669d9fd.png)<br>
 
 
-2.<br>
+16.program to implement various blur technique<br>
+<br>
 import cv2<br>
 import numpy as np<br>
 
@@ -402,8 +405,8 @@ OUTPUT<br>
 <br>
 
 
-
-3.from PIL import Image<br>
+17.Program to perform Image Enhancement<br>
+from PIL import Image<br>
 from PIL import ImageEnhance<br>
 Image=Image.open('butterfly1.jpg')<br>
 Image.show()<br>
@@ -442,7 +445,7 @@ OUTPUT:<br>
 
 
 
-4.<br>
+18.program to perform Morphology operation<br>
 import cv2<br>
 import numpy as np<br>
 from matplotlib import pyplot as plt<br>
@@ -472,7 +475,10 @@ OUTPUT:<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/176420696-b86ccca1-6577-4028-8d5b-f855fa534663.png)<br>
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------<br>
-
+19.Develop a program to <br>
+i)Read the Image<br>
+ii)Write the gray scale image<br>
+iii)Display the original image and grayscale image<br>
 #13/07/2022<br>
 import cv2<br>
 originalimg=cv2.imread('dog1.jpg')<br>
@@ -494,7 +500,7 @@ the image is successfully saved<br>
 
 <br>
 
-
+20.)program to perform slicing with background<br>
 import cv2<br>
 import numpy as np<br>
 from matplotlib import pyplot as plt<br>
@@ -519,7 +525,7 @@ OUTPUT:<br>
 
   ----------------------------------------------------------------------------------------------------------------------------------------------------<br>      
 
-
+21.program to perform slicing without background<br>
 import cv2<br>
 import numpy as np<br>
 from matplotlib import pyplot as plt<br>
@@ -545,7 +551,7 @@ plt.show()<br>
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>
         
 #13-07-2022<br>
-IMAGE USING HISTOGRAM<br>
+22.IMAGE USING HISTOGRAM<br>
 
 using gray image<br>
 
