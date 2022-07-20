@@ -618,5 +618,64 @@ plt.show()<br>
 OUTPUT<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/178971324-02c2e4d7-105e-4e02-98bd-ad898a542115.png)<br>
+-----------------------------------------------------------------------------------------------------------------------<br>
+program to perform basic image data analysis using intensity transformation<br>
+a]Imge negetive<br>
+b]log transformation<br>
+c]Gamma correction<br>
+
+%matplotlib Inline<br>
+import imageio<br>
+import matplotlib.pyplot as plt<br>
+import warnings<br>
+import matplotlib.cbook<br>
+warnings.filterwarnings("ignore",category=matplotlib.cbook.mplDeprecation)<br>
+pic=imageio.imread('butterfly3.jpg')<br>
+plt.figure(figsize=(6,6))<br>
+plt.imshow(pic);<br>
+plt.axis('off');<br>
+
+#image negative<br>
+negative=255-pic #neg=(L-1)-img<br>
+plt.figure(figsize=(6,6))<br>
+plt.imshow(negative);<br>
+plt.axis('off');<br>
+
+
+#Log Transformation<br>
+%matplotlib inline<br>
+
+import imageio<br>
+import numpy as np<br>
+import matplotlib.pyplot as plt<br>
+
+pic=imageio.imread('butterfly3.jpg')<br>
+gray=lambda rgb : np.dot(rgb[...,:3],[0.299,0.587,0.114])<br>
+gray=gray(pic)<br>
+
+max_=np.max(gray)<br>
+
+def log_transform():<br>
+    return(255/np.log(1+max_))*np.log(1+gray)<br>
+plt.figure(figsize=(5,5))<br>
+plt.imshow(log_transform(),cmap=plt.get_cmap(name='gray'))<br>
+plt.axis('off')<br>
+
+(-0.5, 1023.5, 929.5, -0.5)<br>
+
+#Gamma correction<br>
+import imageio<br>
+import matplotlib.pyplot as plt<br>
+
+#Gamma encoding<br>
+pic=imageio.imread('butterfly3.jpg')<br>
+gamma=2.2 #Gamma<1 ~dark: Gamma>1 ~Bright<br>
+
+gamma_correction=((pic/255)**(1/gamma))<br>
+plt.figure(figsize=(5,5))<br>
+plt.imshow(gamma_correction)<br>
+plt.axis('off');<br>
+
+
 
 
