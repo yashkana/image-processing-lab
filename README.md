@@ -619,7 +619,7 @@ OUTPUT<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/178971324-02c2e4d7-105e-4e02-98bd-ad898a542115.png)<br>
 -----------------------------------------------------------------------------------------------------------------------<br>
-program to perform basic image data analysis using intensity transformation<br>
+23.program to perform basic image data analysis using intensity transformation<br>
 a]Imge negetive<br>
 b]log transformation<br>
 c]Gamma correction<br>
@@ -646,7 +646,8 @@ plt.figure(figsize=(6,6))<br>
 plt.imshow(negative);<br>
 plt.axis('off');<br>
 
-OUTPUT
+OUTPUT<br>
+![image](https://user-images.githubusercontent.com/98301023/180035594-74ae8945-c205-41c2-b1bc-da78df9062b0.png)<br>
 
 
 #Log Transformation<br>
@@ -668,7 +669,7 @@ plt.figure(figsize=(5,5))<br>
 plt.imshow(log_transform(),cmap=plt.get_cmap(name='gray'))<br>
 plt.axis('off')<br>
 
-OUTPUT:
+OUTPUT:<br>
 ![image](https://user-images.githubusercontent.com/98301023/180034483-7d656077-2048-49fe-a93c-e88d63ff3aa7.png)<br>
 
 
@@ -685,7 +686,13 @@ plt.figure(figsize=(5,5))<br>
 plt.imshow(gamma_correction)<br>
 plt.axis('off');<br>
 
+
+OUTPUT:
 ![image](https://user-images.githubusercontent.com/98301023/180034818-958bfe51-8251-42f9-8dcc-c5e7a0070559.png)<br>
+_________________________________________________________________________________________________________________________
 
-
+24.program to perform basic image manipulation
+a]sharness
+b]flipping
+c]cropping
 
