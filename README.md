@@ -636,7 +636,7 @@ plt.imshow(pic);<br>
 plt.axis('off');<br>
 
 #output
-![image](https://user-images.githubusercontent.com/98301023/180028959-f6ce3548-634f-4b5d-adf2-af5adee40f05.png)
+![image](https://user-images.githubusercontent.com/98301023/180028959-f6ce3548-634f-4b5d-adf2-af5adee40f05.png)<br>
 
 
 
@@ -645,6 +645,8 @@ negative=255-pic #neg=(L-1)-img<br>
 plt.figure(figsize=(6,6))<br>
 plt.imshow(negative);<br>
 plt.axis('off');<br>
+
+OUTPUT
 
 
 #Log Transformation<br>
@@ -666,7 +668,9 @@ plt.figure(figsize=(5,5))<br>
 plt.imshow(log_transform(),cmap=plt.get_cmap(name='gray'))<br>
 plt.axis('off')<br>
 
-(-0.5, 1023.5, 929.5, -0.5)<br>
+OUTPUT:
+![image](https://user-images.githubusercontent.com/98301023/180034483-7d656077-2048-49fe-a93c-e88d63ff3aa7.png)<br>
+
 
 #Gamma correction<br>
 import imageio<br>
@@ -681,6 +685,7 @@ plt.figure(figsize=(5,5))<br>
 plt.imshow(gamma_correction)<br>
 plt.axis('off');<br>
 
+![image](https://user-images.githubusercontent.com/98301023/180034818-958bfe51-8251-42f9-8dcc-c5e7a0070559.png)<br>
 
 
 
