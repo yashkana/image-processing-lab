@@ -691,8 +691,81 @@ OUTPUT:
 ![image](https://user-images.githubusercontent.com/98301023/180034818-958bfe51-8251-42f9-8dcc-c5e7a0070559.png)<br>
 _________________________________________________________________________________________________________________________
 
-24.program to perform basic image manipulation
-a]sharness
-b]flipping
-c]cropping
+24.program to perform basic image manipulation<br>
+a]sharness<br>
+b]flipping<br>
+c]cropping<br>
+
+#Image sharpen<br>
+from PIL import Image<br>
+from PIL import ImageFilter<br>
+import matplotlib.pyplot as plt <br>
+
+#load the image<br>
+my_image=Image.open('myimage.jpg')<br>
+
+#use sharpen function<br>
+sharp=my_image.filter(ImageFilter.SHARPEN)<br>
+
+#save the image<br>
+sharp.save('D:/image_sharpen.jpg')<br>
+sharp.show()<br>
+plt.imshow(sharp)<br>
+plt.show()<br>
+
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/98301023/180037807-ace5276e-881c-4531-b659-5ec3a8aeab02.png)<br>
+
+
+#Image flip<br>
+import matplotlib.pyplot as plt<br>
+#load the image<br>
+img=Image.open('myimage.jpg')<br>
+plt.imshow(img)<br>
+plt.show()<br>
+#use the flip function<br>
+flip=img.transpose(Image.FLIP_LEFT_RIGHT)<br>
+
+#save the image<br>
+flip.save('D:/image_flip.jpg')<br>
+plt.imshow(flip)<br>
+plt.show()<br>
+
+output:
+![image](https://user-images.githubusercontent.com/98301023/180037954-04cfe713-e4cb-409d-a9b0-b50bc8473f76.png)<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/180038142-58451710-f259-4271-b432-131df35d9819.png)<br>
+
+
+#Importing Image class from pil module<br>
+from PIL import Image <br>
+import matplotlib.pyplot as plt<br>
+
+#opens a image in  RGB mode<br>
+im=Image.open('myimage.jpg')<br>
+plt.imshow(im)<br>
+
+#size the image in pixels(size of original image)<br>
+#(this is not mandatory)<br>
+widtg,height=im.size<br>
+
+#cropped image of above dimension<br>
+#(it will not change the original image)<br>
+im1=im.crop((100,20,200,140))<br>
+
+#show the image in image viewer<br>
+#im1.show()<br>
+plt.imshow(im1)<br>
+plt.show()<br>
+
+
+
+output:<br>
+
+![image](https://user-images.githubusercontent.com/98301023/180038247-b53beb54-e645-4a56-9212-a25d49edffb0.png)<br>
+
+
+
+
 
