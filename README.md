@@ -635,6 +635,11 @@ plt.figure(figsize=(6,6))<br>
 plt.imshow(pic);<br>
 plt.axis('off');<br>
 
+#output
+![image](https://user-images.githubusercontent.com/98301023/180028959-f6ce3548-634f-4b5d-adf2-af5adee40f05.png)
+
+
+
 #image negative<br>
 negative=255-pic #neg=(L-1)-img<br>
 plt.figure(figsize=(6,6))<br>
