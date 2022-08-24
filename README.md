@@ -3,7 +3,7 @@
 __1.Develop a program to display grayscale image as tiny real and write program<br>__
 import cv2<br>
 img1=cv2.imread('flower5.jpg',0)<br>
-cv2.imshow('flower3',img1)<br>
+# cv2.imshow('flower3',img1)<br>
 cv2.waitKey(0)<br>
 cv2.destroyAllWindows()<br>
 
