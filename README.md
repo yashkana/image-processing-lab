@@ -827,6 +827,147 @@ The image as array is:<br>
   [179 126  50]]]<br>
   # _____________________________________________________________________________________________________________________
 
+# 26.programt to find the brightness of a Image from distance to centre<br>
+import numpy as np<br>
+import matplotlib.pyplot as plt<br>
+arr = np.zeros((256,256,3), dtype=np.uint8)<br>
+imgsize = arr.shape[:2]<br>
+innerColor = (255, 255, 255)<br>
+outerColor = (0,0,0)<br>
+for y in range(imgsize[1]):<br>
+ for x in range(imgsize[0]):<br>
+    distanceToCenter = np.sqrt((x - imgsize[0]//2) ** 2 + (y - imgsize[1]//2) ** 2)<br>
+distanceToCenter = distanceToCenter / (np.sqrt(2) * imgsize[0]/2)<br>
+r = outerColor[0] * distanceToCenter + innerColor[0] * (1 - distanceToCenter)<br>
+g = outerColor[1] * distanceToCenter + innerColor[1] * (1 - distanceToCenter)<br>
+b = outerColor[2] * distanceToCenter + innerColor[2] * (1 - distanceToCenter)<br>
+arr[y, x] = (int(r), int(g), int(b))<br>
+plt.imshow(arr, cmap='gray')<br>
+plt.show()<br>
+
+# OUTPUT<br>
+
+# ________________________________________________________________________________________________________________
+
+# 27.# example of pixel normalization<br>
+
+from numpy import asarray<br>
+from PIL import Image<br>
+# load image<br>
+
+image = Image.open('bird.jpg')<br>
+pixels = asarray(image)<br>
+# confirm pixel range is 0-255<br>
+
+#print('Data Type: %s' % pixels.dtype)<br>
+print('Min: %.3f, Max: %.3f' % (pixels.min(), pixels.max()))<br>
+# convert from integers to floats<br>
+
+pixels = pixels.astype('float32')<br>
+# normalize to the range 0-1<br>
+
+pixels /= 255.0<br>
+# confirm the normalization<br>
+
+print('Min: %.3f, Max: %.3f' % (pixels.min(), pixels.max())<br>
+
+
+# aVerage<br>
+import cv2<br>
+import numpy as np<br>
+import matplotlib.pyplot as plt<br>
+img=cv2.imread("bird.jpg",0)<br>
+img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)<br>
+plt.imshow(img)<br>
+np.average(img)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/186457327-f6a73d13-1564-410f-b1ec-00b673d26d9d.png)<br>
+
+# Standard deviation<br>
+from PIL import Image,ImageStat<br>
+import matplotlib.pyplot as plt<br>
+im=Image.open('bird.jpg')<br>
+plt.imshow(im)<br>
+plt.show()<br>
+stat=ImageStat.Stat(im)<br>
+print(stat.stddev)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/186457501-e732cddf-313c-43a8-a3b5-e776f642553d.png)<br>
+
+ # Max<br>
+import cv2<br>
+import numpy as np<br>
+import matplotlib.pyplot as plt<br>
+img=cv2.imread('bird.jpg' )<br>
+plt.imshow(img)<br>
+plt.show()<br>
+max_channels = np.amax([np.amax(img[:,:,0]), np.amax(img[:,:,1]),np.amax(img[:,:,2])])<br>
+print(max_channels)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/186457829-096ca043-cc1d-43d2-b332-78ecc7326ef9.png)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/186457949-c72a00bd-e35f-49ff-85ad-cce32960b266.png)<br>
+
+
+# Min<br>
+import cv2<br>
+import numpy as np<br>
+import matplotlib.pyplot as plt<br>
+img=cv2.imread('bird.jpg' )<br>
+plt.imshow(img)<br>
+plt.show()<br>
+min_channels = np.amin([np.min(img[:,:,0]), np.amin(img[:,:,1]),np.amin(img[:,:,2])])<br>
+print(min_channels)<br>
+
+
+![image](https://user-images.githubusercontent.com/98301023/186458541-df391103-80ff-4ca1-9d95-3b0f872b9e90.png)<br>
+
+# _____________________________________________________________________________________________________________________
+# 32.Sobel edge and canny edge detection<br>
+import cv2<br>
+# Read the original image<br>
+
+img = cv2.imread('lio1.jpg')<br>
+# Display original image<br>
+
+cv2.imshow('Original', img)<br>
+cv2.waitKey(0)<br>
+# Convert to graycsale<br>
+
+img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)<br>
+#Blur the image for better edge detection<br>
+
+img_blur = cv2.GaussianBlur(img_gray, (3,3), 0)<br>
+# Sobel Edge Detection<br>
+
+sobelx = cv2.Sobel(src=img_blur, ddepth=cv2.CV_64F, dx=1, dy=0, ksize=5) # Sobel Edge Detection on the X axis<br>
+sobely = cv2.Sobel(src=img_blur, ddepth=cv2.CV_64F, dx=0, dy=1, ksize=5) # Sobel Edge Detection on the Y axis<br>
+sobelxy = cv2.Sobel(src=img_blur, ddepth=cv2.CV_64F, dx=1, dy=1, ksize=5) # Combined X and Y Sobel Edge Detection<br>
+# Display Sobel Edge Detection Images<br>
+
+cv2.imshow('Sobel X', sobelx)<br>
+cv2.waitKey(0)<br>
+cv2.imshow('Sobel Y', sobely)<br>
+cv2.waitKey(0)<br>
+cv2.imshow('Sobel X Y using Sobel() function', sobelxy)<br>
+cv2.waitKey(0)<br>
+#Canny Edge Detection<br>
+
+edges = cv2.Canny(image=img_blur, threshold1=100, threshold2=200) # Canny Edge Detection<br>
+# Display Canny Edge Detection Image<br>
+
+cv2.imshow('Canny Edge Detection', edges)<br>
+cv2.waitKey(0)<br>
+cv2.destroyAllWindows()<br>
+
+__ OUTPUT__<br>
+![image](https://user-images.githubusercontent.com/98301023/186462220-0b2ce596-37a3-44b4-ae82-4d7cb9d0c614.png)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/186462355-aff34292-afc4-477a-9a42-b63317e4491f.png)<br>
+
+![image](https://user-images.githubusercontent.com/98301023/186462495-4847768c-0978-45d3-97ad-fabfb4e15785.png)<br>
+
+
 
 
 
