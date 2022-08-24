@@ -21,7 +21,7 @@ plt.imshow(img)<br>
 
 
 
-3.Develop program to perform linear transfermation rotation<br>
+__3.Develop program to perform linear transfermation rotation<br>__
 from PIL import Image<br>
 img=Image.open("flower3.jpg")<br>
 img=img.rotate(180)<br>
