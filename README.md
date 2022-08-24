@@ -1,5 +1,5 @@
 # image-processing-lab
-
+🆈🅰🆂🅷🆆🅸🅽🅳
 __1.Develop a program to display grayscale image as tiny real and write program<br>__
 import cv2<br>
 img1=cv2.imread('flower5.jpg',0)<br>
