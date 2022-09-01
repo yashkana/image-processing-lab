@@ -951,7 +951,7 @@ cv2.imshow('Sobel Y', sobely)<br>
 cv2.waitKey(0)<br>
 cv2.imshow('Sobel X Y using Sobel() function', sobelxy)<br>
 cv2.waitKey(0)<br>
-#Canny Edge Detection<br>
+# Canny Edge Detection<br>
 
 edges = cv2.Canny(image=img_blur, threshold1=100, threshold2=200) # Canny Edge Detection<br>
 # Display Canny Edge Detection Image<br>
@@ -973,8 +973,242 @@ __ OUTPUT__<br>
 
 ![image](https://user-images.githubusercontent.com/98301023/187943241-4de3df8f-4655-4eb0-a954-780b04f02b14.png)
 
+_________________________________________________________________________________________________________________________<br>
 
 
+# 33. image processing
+# 1.Image restoration:
+
+# (a)Restore a damaged image
+
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
+# open the image
+img=cv2.imread('dimage_damaged.png')
+plt.imshow(img)
+plt.show()
+
+# load the mask
+mask=cv2.imread('dimage_mask.png',0)
+plt.imshow(mask)
+plt.show()
+
+# inpaint.
+dst=cv2.inpaint(img,mask,3,cv2.INPAINT_TELEA)
+
+# write the output
+cv2.imwrite('dimage_inpainted.png',dst)
+plt.imshow(dst)
+plt.show()
 
 
+# output
+![image](https://user-images.githubusercontent.com/98301023/187944659-d573d661-82d0-4ccc-ae7a-00e067d403c5.png)
 
+
+![image](https://user-images.githubusercontent.com/98301023/187945431-e9fb5235-bd7b-4a38-8a7d-13220789b4a3.png)
+
+![image](https://user-images.githubusercontent.com/98301023/187945482-c54b69dd-b2a2-4358-b504-16abf5bb1a5a.png)
+
+
+# (b) REmoving Logo's
+
+import numpy as np
+import matplotlib as plt
+import pandas as pd
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize']=(10, 8)
+
+def show_image(image,tittle='Image',cmap_type='gray'):
+    plt.imshow(image,cmap=cmap_type)
+    plt.title(title)
+    plt.axis('off')
+ 
+def plot_comparison(img_original,img_filtered,img_title_filterd):
+    fig,(ax1,ax2)=plt.subplots(ncols=2,figsize=(10,8),sharex=True,sharey=True)
+    ax1.imshow(img_original,cmap=plt.cm.gray)
+    ax1.set_title('original')
+    ax1.axis('off')
+    ax2.imshow(img_filtered,cmap=plt.cm.gray)
+    ax2.set_title(img_title_filterd)
+    ax2.axis('off')
+    
+    
+    
+  from skimage.restoration import inpaint
+from skimage.transform import resize
+from skimage import color
+
+
+image_with_logo=plt.imread('imlogo.png')
+
+# initialize the mask
+mask=np.zeros(image_with_logo.shape[:-1])
+
+# set the pixels where the logo is to 1
+mask[210:272,360:425]=1
+
+# apply inpainting to remove the logo
+image_logo_removed=inpaint.inpaint_biharmonic(image_with_logo,
+                                              mask,multichannel=True)
+
+# show the image and logo removed images
+plot_comparison(image_with_logo,image_logo_removed, 'image with logo removed')
+
+          
+![image](https://user-images.githubusercontent.com/98301023/187946061-5ee3f246-e39a-4809-90ec-ca8702d661b7.png)
+
+# (2) Noise:
+# (a) adding noise
+from skimage.util import random_noise
+
+fruit_image=plt.imread('fruitts.jpeg')
+
+
+# add noise to the image
+noisy_image=random_noise(fruit_image)
+
+# show the original and resulting image
+plot_comparison(fruit_image,noisy_image,'noisy image')
+
+
+![image](https://user-images.githubusercontent.com/98301023/187946297-4c42fcdf-966e-4658-91c2-c9e6beb4e45a.png)
+
+
+# (b) Reducing noise
+from skimage.restoration import denoise_tv_chambolle
+
+noisy_image=plt.imread('noisy.jpg')
+
+# Apply total variation filter dnoising
+denoised_image=denoise_tv_chambolle(noisy_image,multichannel=True)
+
+# show the noisy and denoised image
+plot_comparison(noisy_image,denoised_image,'denoised image')
+
+
+![image](https://user-images.githubusercontent.com/98301023/187946606-0849defc-9b63-4104-901a-1a349d3b42fc.png)
+
+# (c) Reducing Noise while preserving edges
+
+from skimage.restoration import denoise_bilateral
+landscape_image=plt.imread('noisy.jpg')
+
+# Apply bilateral filter denoising
+
+denoised_image=denoise_bilateral(landscape_image,multichannel=True)
+
+# show original and resulting image
+plot_comparison(landscape_image,denoised_image,'denoised Image')
+
+
+![image](https://user-images.githubusercontent.com/98301023/187946989-4eab0673-2c58-4c64-a746-30527ca3deee.png)
+
+
+# (3) Segmentation
+# (a) Superpixel Segmentation
+
+from skimage.segmentation import slic
+from skimage.color import label2rgb
+
+face_image=plt.imread('face.jpg')
+
+# obtain the segmentation with 400 regions
+segment=slic(face_image,n_segments=400)
+
+# put segment on top of original image to compare
+segmented_image=label2rgb(segment,face_image,kind='avg')
+
+# show the segmented image
+plot_comparison(face_image,segmented_image,'segmentd image,400 superpixels')
+
+![image](https://user-images.githubusercontent.com/98301023/187947198-cbc1d248-5454-4377-b0da-5c8c1465a9e3.png)
+
+
+# (4) Counters:
+ #   (a) counting shapes
+    
+def show_image_contour(image,counters):
+    plt.figure()
+    for n,contour in enumerate(contours):
+        plt.plot(contour[:, 1],contour[:, 0],linewidth=3)
+    plt.imshow(image,interpolation='nearest',cmap='gray_r')    
+    plt.title('contours')
+    plt.axis('off')
+    
+    
+from skimage import measure,data
+
+# obtain the horse image
+horse_image=data.horse()
+
+# find the contour with a constant level value of 0.8
+contours=measure.find_contours(horse_image,level=0.8)
+
+# show the image with contour found
+show_image_contour(horse_image,contours)
+
+![image](https://user-images.githubusercontent.com/98301023/187947492-ad8c29eb-6e5e-4532-86f8-0db42b1fa75d.png)
+
+
+# (b) Find the contours of an image that is not binary
+from skimage.io import imread
+from skimage.filters import threshold_otsu
+image_dices=imread('diceimg.jpg')
+
+# make the image gray scale
+image_dices= color.rgb2gray(image_dices)
+
+#obtain the optimal thresh value
+thresh=threshold_otsu(image_dices)
+
+# Apply thresholding
+binary=image_dices> thresh
+
+# find contours at a constant value of 0.8
+contours=measure.find_contours(binary,level=0.8)
+
+# show the image
+show_image_contour(image_dices,contours)
+
+# (b) Find the contours of an image that is not binary
+from skimage.io import imread
+from skimage.filters import threshold_otsu
+image_dices=imread('diceimg.jpg')
+
+# make the image gray scale
+image_dices= color.rgb2gray(image_dices)
+
+# obtain the optimal thresh value
+thresh=threshold_otsu(image_dices)
+
+# Apply thresholding
+binary=image_dices> thresh
+
+# find contours at a constant value of 0.8
+contours=measure.find_contours(binary,level=0.8)
+
+#  show the image
+show_image_contour(image_dices,contours)
+
+![image](https://user-images.githubusercontent.com/98301023/187947649-6f1c2a06-093e-4d79-9c16-5ea646b835d3.png)
+
+
+#(c) create list with the shape of each contour
+shape_contours=[cnt.shape[0] for cnt in contours]
+
+
+# set as the maximum size of the dots shape
+max_dots_shape=50
+
+# count dots in contours excluding bigger than dots size
+dots_contours=[cnt for cnt in contours if np.shape(cnt)[0]<max_dots_shape]
+
+# shows all contours found
+show_image_contour(binary,contours)
+
+# print the dice's number
+print('dices dots number:{}'.format(len(dots_contours)))
+
+![image](https://user-images.githubusercontent.com/98301023/187947824-0cd061cc-50e6-4f6a-85c8-3be278315ec0.png)
